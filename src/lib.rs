@@ -61,18 +61,4 @@ Pick three.";
 
         assert_eq!(vec!["safe, fast, productive."], search(query, contents));
     }
-
-    #[test]
-    fn case_insensitive() {
-        let query = "rUsT";
-        let contents = "\
-Rust:
-safe, fast, productive.
-Pick three.
-Trust me.";
-
-        std::env::set_var("CASE_INSENSITIVE", "1");
-
-        assert_eq!(vec!["Rust:", "Trust me."], search(query, contents));
-    }
 }
